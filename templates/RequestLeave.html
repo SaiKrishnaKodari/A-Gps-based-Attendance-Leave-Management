@@ -1,0 +1,40 @@
+{% extends "base.html"%}
+
+{% block content%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leave Request</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+
+
+</head>
+<style>
+body,h1 {font-family: "Raleway", sans-serif;padding:20px}
+</style>
+<body>
+<div class="w3-display-middle">
+    
+    <h1>Request Leave Page</h1>
+    <form method="POST"> 
+    <fieldset style="float:left;width:500px;height:300px;
+    background-color:white;border-color:#1c1b1b;border: 1px solid # CCC; border-radius:6px;padding:25px;">
+        {% csrf_token %}
+        {% comment %} Starting Date :   {{form.starting_date.value}}<br><br>
+        No.Of.Days    :   {{form.no_of_days}}<br><br>
+        Reason        :   {{form.reason}}<br><br>  {% endcomment %}
+        {{form.as_p}}
+
+        <input type="submit" class="" value="Apply">
+        </fieldset>
+    </form>
+</div>    
+</body>
+
+</html>
+{% endblock%}

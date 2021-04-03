@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leave Request</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+
+
+</head>
+<style>
+body,h1{font-family: "Raleway", sans-serif;padding:20px}
+</style>
+<style>
+    table {
+  border-collapse: collapse;
+  align-content: center;
+  font-family: "Raleway", sans-serif;padding:20px
+}
+
+th {
+  border: 1px solid orange;
+  text-align: center;
+  padding: 15px;
+  font-family: "Raleway", sans-serif;padding:20px
+}
+td {
+  border: 1px solid orange;
+  text-align: center;
+  padding: 15px;
+  font-family: "Raleway", sans-serif;padding:20px;
+  
+}
+
+</style>
+
+    <h1>Requested Leaves</h1>
+    <div class="w3-display-middle">
+    
+
+    <table >
+        <tr>
+        <th>REQUESTED ON</th>
+        <th>STARTING DATE</th>
+        <th>REASON</th>
+        <th>NO OF DAYS</th>
+        <th>STATUS</th>
+        </tr>
+    
+    
+    {%for leave in leaves%}
+        <tr>
+        <td>{{leave.date}}</td>
+        <td>{{leave.starting_date}}</td>
+        <td>{{leave.reason}}</td>
+        <td>{{leave.no_of_days}}</td>  
+    
+        {% if leave.isApproved %}
+            <td style="color:green">Approved</td>
+        {%else%}
+        {% if leave.isRejected %}
+            <td style="color: red;">Rejected</td>
+        {%else%}
+            <td style="color:black;">Pending</td>
+        {%endif%}
+        {%endif%}    
+{% comment %} 
+
+        {% endif %} 
+        {% if leave.isRejected %}
+            <td style="color: red;">Rejected</td>
+        {% endif %}  {% endcomment %}
+        </tr>
+    <br>
+    {% endfor%}
+</table>
+</div>
+
+{%  endblock %}

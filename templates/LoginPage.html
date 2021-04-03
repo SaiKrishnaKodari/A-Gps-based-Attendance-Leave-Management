@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<title>Leave Management System</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+body,h1 {font-family: "Raleway", sans-serif}
+body, html {height: 100%}
+.bgimg {
+    background-image: url('https://www.w3schools.com/w3images/forestbridge.jpg');
+    min-height: 100%;
+    background-position: center;
+    background-size: cover;
+}
+</style>
+<body>
+
+<div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
+  <div class="w3-display-middle">
+    
+    <form method="POST">
+    
+    <fieldset style="float:left;width:500px;height:300px;
+    background-color:#2f2f30;border-color:#1c1b1b;border: 1px solid # CCC; border-radius:6px;padding:25px;">
+        {% csrf_token %}
+        <h4>Login as Employee</h4>
+        <br>
+      
+        Username: <input type="text" name="username" ><br><br>
+        Password: &nbsp;<input type="password" name="password"><br>
+        <br>
+        <br>
+    
+        <input type="submit" value="LOGIN" style="width: 100px; margin: 0 auto;" />
+      </fieldset>  
+    </form>
+  </div>
+</div>
+</body>
+</html>
